@@ -11,9 +11,9 @@ var app = app || {};
   }
 
   bookView.initIndexPage = function() {
-    reset();
-    $('.book-view').show();
-    $('#book-list').show();
+    // reset();
+    // $('.book-view').show();
+    // $('#book-list').show();
     app.Book.all.map(book => $('#book-list-template').append(book.toHtml()));
   }
 
