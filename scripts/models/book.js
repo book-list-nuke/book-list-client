@@ -15,7 +15,7 @@ var __API_URL__ = 'https://ng-kc-booklist.herokuapp.com';
 
   //This is the function to render all of the books via the template with the same ID at the top of index.html
   Book.prototype.toHtml = function() {
-    let template = Handlebars.compile($('#book-list-template').text());
+    let template = Handlebars.compile($('#book-template').text());
     return template(this);
   }
 
