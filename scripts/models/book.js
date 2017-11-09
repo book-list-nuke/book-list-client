@@ -32,6 +32,14 @@ var __API_URL__ = 'http://localhost:3000';
       .then(callback)
       .catch(errorCallback);
 
+  Book.fetchOne = (ctx, callback) => {
+    console.log(ctx);
+    $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
+      .then(results => ctx.book = results[0])
+      .then(callback)
+      .catch(errorCallback);
+  }
+
   //This receives the book object from the function on book-view.js.
   Book.createBook = book =>
     $.post(`${__API_URL__}/api/v1/books`, book)
