@@ -33,7 +33,7 @@ var __API_URL__ = 'http://localhost:3000';
       .catch(errorCallback);
 
   Book.fetchOne = (ctx, callback) => {
-    console.log(ctx);
+    console.log('inside fetchOne function');
     $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
       .then(results => ctx.book = results[0])
       .then(callback)

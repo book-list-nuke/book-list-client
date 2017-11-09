@@ -15,7 +15,7 @@ var app = app || {};
     console.log('in initindex')
     reset();
     $('.book-view').show();
-    $('#book-list').show();
+    $('#book-list').empty();
     app.Book.all.map(book => $('#book-list').append(book.toHtml()));
   }
 
@@ -23,7 +23,6 @@ var app = app || {};
   bookView.initAddForm = function() {
     reset();
     $('.add-view').show();
-    console.log('inside initaddform');
     $('#add-form').on('submit', function(event) {
       event.preventDefault();
       let book = {
@@ -34,17 +33,17 @@ var app = app || {};
         description: event.target.description.value,
       };
       console.log('book', book);
-
       module.Book.createBook(book);
     })
   }
 
   bookView.initDetailPage = function (ctx) {
+    console.log('insite initdetailpage');
     reset();
     $('.detail-view').show();
-    $('.book-detail').empty();
+    $('#book-detail').empty();
     let template = Handlebars.compile($('#book-detail-template').text());
-    $('.book-detail').append(template(ctx));
+    $('#book-detail').append(template(ctx));
   }
 
   module.bookView = bookView;

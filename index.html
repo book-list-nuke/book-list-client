@@ -19,7 +19,6 @@
       </li>
     </script>
 
-    <!-- This is the handlebars template for a detailed view of a single book. It is not currently in use and needs a little extra work. -->
     <script type="text/x-handlebars-template" id="book-detail-template">
       <h4>{{title}}</h4>
       <p>{{author}}</p>
@@ -50,8 +49,9 @@
       </section>
 
       <section class="detail-view container">
-        <section class="book-detail"></section>
+        <section id="book-detail">
         </section>
+      </section>
 
       <section class="add-view container">
         <h3>Add a New Book</h3>
