@@ -21,7 +21,7 @@ var __API_URL__ = 'https://ng-kc-booklist.herokuapp.com/';
   Book.all = [];
 
   Book.loadAll = rows => {
-    Book.all = rows.map(book => new Book(book));
+    Book.all = rows.map(book => new app.Book(book));
   }
 
   Book.fetchAll = callback =>
