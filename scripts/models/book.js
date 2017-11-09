@@ -1,8 +1,8 @@
 'use strict';
 
 var app = app || {};
-var __API_URL__ = 'https://ng-kc-booklist.herokuapp.com';
-// var __API_URL__ = 'http://localhost:3000';
+// var __API_URL__ = 'https://ng-kc-booklist.herokuapp.com';
+var __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
   function errorCallback(err) {
@@ -16,11 +16,11 @@ var __API_URL__ = 'https://ng-kc-booklist.herokuapp.com';
 
   //This is the function to render all of the books via the template at the top of index.html
   Book.prototype.toHtml = function() {
-    let template = Handlebars.compile($('#book-list').text());
+    let template = Handlebars.compile($('#book-template').text());
     return template(this);
   }
 
-  Book.all = []; 
+  Book.all = [];
 
   Book.loadAll = rows => {
     Book.all = rows.map(book => new Book(book));
