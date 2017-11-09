@@ -5,7 +5,7 @@ var app = app || {};
 (function(module) {
   const bookView = {};
 
-  //This resets the state of the page every time one of these init funtions is called.
+  //This resets the state of the page every time one of these init funtions is
   // function reset() {
   //   $('.container').hide();
   //   $('.navigation').slideDown(350);
@@ -16,7 +16,7 @@ var app = app || {};
     // reset();
     // $('.book-view').show();
     // $('#book-list').show();
-    app.Book.all.map(book => $('#book-list').append(book.toHtml()));
+    app.Book.all.map(book => $('#book-template').append(book.toHtml()));
   }
 
   // This function SHOULD be triggered through the page.js routing for /add, making the form visible and passing the form's data to a new Book object. That Book object is then passed to a createBook method on books.js.
