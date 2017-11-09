@@ -1,7 +1,6 @@
 'use strict';
 
 var app = app || {};
-
 (function(module) {
   const bookView = {};
 
@@ -19,7 +18,7 @@ var app = app || {};
     app.Book.all.map(book => $('#book-template').append(book.toHtml()));
   }
 
-  // This function SHOULD be triggered through the page.js routing for /add, making the form visible and passing the form's data to a new Book object. That Book object is then passed to a createBook method on books.js.
+  // This function SHOULD be triggered through the page.js routing for /add, making the form visible and passing the form's data to a new Book object. That Book object is then passed to a createBook method on books.js. Clicking the relevant menu item DOES show the form correctly, but it's currently disabled until you comment all of the reset functions back in.
   bookView.initAddForm = function() {
     // reset();
     $('.add-view').show();
