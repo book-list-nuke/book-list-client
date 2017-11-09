@@ -1,6 +1,6 @@
 'use strict';
 
-var app = {};
+var app = app || {};
 var __API_URL__ = 'https://ng-kc-booklist.herokuapp.com';
 
 (function(module) {
