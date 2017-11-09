@@ -15,15 +15,14 @@ var app = app || {};
     console.log('in initindex')
     reset();
     $('.book-view').show();
-    $('#book-list').show();
+    $('#book-list').empty();
     app.Book.all.map(book => $('#book-list').append(book.toHtml()));
   }
 
   // This function SHOULD be triggered through the page.js routing for /add, making the form visible and passing the form's data to a new Book object. That Book object is then passed to a createBook method on books.js. Clicking the relevant menu item DOES show the form correctly, but it's currently disabled until you comment all of the reset functions back in.
   bookView.initAddForm = function() {
-    reset(); 
+    reset();
     $('.add-view').show();
-    console.log('inside initaddform');
     $('#add-form').on('submit', function(event) {
       event.preventDefault();
       let book = {
@@ -34,9 +33,17 @@ var app = app || {};
         description: event.target.description.value,
       };
       console.log('book', book);
-
       module.Book.createBook(book);
     })
+  }
+
+  bookView.initDetailPage = function (ctx) {
+    console.log('insite initdetailpage');
+    reset();
+    $('.detail-view').show();
+    $('#book-detail').empty();
+    let template = Handlebars.compile($('#book-detail-template').text());
+    $('#book-detail').append(template(ctx));
   }
 
   module.bookView = bookView;

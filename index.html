@@ -11,21 +11,19 @@
     </script>
 
     <script type="text/x-handlebars-template" id="book-template">
-      <li class="book-item">
+      <li class="book-item" data-bookid={{book_id}}>
+        <img src={{image_url}}>
         <h4>{{title}}</h4>
         <p>{{author}}</p>
-        <p>{{isbn}}</p>
-        <p>{{image_url}}</p>
-        <!-- <a href="/books/{{book_id}}">Details</a> -->
+        <p class="detail-button"><a href="/books/{{book_id}}">View Details</a></p>
       </li>
     </script>
 
-    <!-- This is the handlebars template for a detailed view of a single book. It is not currently in use and needs a little extra work. -->
     <script type="text/x-handlebars-template" id="book-detail-template">
       <h4>{{title}}</h4>
       <p>{{author}}</p>
       <p>{{isbn}}</p>
-      <p>{{image_url}}</p>
+      <img src={{image_url}}>
       <p>{{description}}</p>
     </script>
   </head>
@@ -50,9 +48,10 @@
           <ul id="book-list"></ul>
       </section>
 
-      <section class="book-details container">
-        <ul id="detail-list"</ul>
+      <section class="detail-view container">
+        <section id="book-detail">
         </section>
+      </section>
 
       <section class="add-view container">
         <h3>Add a New Book</h3>
