@@ -14,7 +14,7 @@ var app = app || {};
     reset();
     $('.book-view').show();
     $('#book-list').empty();
-    app.Book.all.map(book => $('#book-list').append(book.toHtml()));
+    app.Book.all.map(book => $('#book-list-template').append(book.toHtml()));
   }
 
   bookView.initAddForm = function() {
