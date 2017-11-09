@@ -1,7 +1,8 @@
 'use strict';
 
 var app = app || {};
-var __API_URL__ = 'https://ng-kc-booklist.herokuapp.com';
+// var __API_URL__ = 'https://ng-kc-booklist.herokuapp.com';
+var __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
   function errorCallback(err) {
