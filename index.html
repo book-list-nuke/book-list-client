@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List 2: Electric Boogaloo</title>
+
+
+    <script type="text/x-handlebars-template" id="error-template">
+      <p>{{status}}: {{statusText}}</p>
+    </script>
+
+    <script type="text/x-handlebars-template" id="book-list-template">
+      <li class="book-item">
+        <h4>{{title}}</h4>
+        <p>{{author}}</p>
+        <p>{{isbn}}</p>
+        <p>{{image_url}}</p>
+        <!-- <a href="/books/{{book_id}}">Details</a> -->
+      </li>
+    </script>
+
+    <script type="text/x-handlebars-template" id="book-detail-template">
+      <h4>{{title}}</h4>
+      <p>{{author}}</p>
+      <p>{{isbn}}</p>
+      <p>{{image_url}}</p>
+      <p>{{description}}</p>
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Book List 2: Electric Boogaloo</h1>
+      <nav class="navigation">
+        <ul>
+          <li><a href="/books/new">Add a Book</a></li>
+          <li><a href="/">View All Books</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="error-view container">
+        <h3>Something went wrong</h3>
+        <section id="error-message"></section>
+      </section>
+
+      <section class="book-list container">
+        <h3>My Books</h3>
+          <ul id="book-list"></ul>
+      </section>
+
+      <section class="book-details container">
+        <ul id="detail-list"</ul>
+        </section>
+
+      <section class="add-view container">
+        <h3>Add a New Book</h3>
+        <form id="add-form">
+          <input type="text" name="title" placeholder="Title">
+          <input type="text" name="author" placeholder="Author">
+          <input type="text" name="isbn" placeholder="ISBN">
+          <input type="text" name="image_url" placeholder="Image URL">
+          <textarea name="description" placeholder="Description" cols="30" rows="10"></textarea>
+          <button type="submit">Add This Book</button>
+        </form>
+
+      </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <script src="./scripts/models/book.js" type="text/javascript"></script>
+    <script src="./scripts/views/book-view.js" type="text/javascript"></script>
+    <script src="./scripts/views/error-view.js" type="text/javascript"></script>
+    <script src="./scripts/controllers/routes.js" type="text/javascript"></script>
+  </body>
+</html>
