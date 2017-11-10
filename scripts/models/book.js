@@ -36,7 +36,6 @@ var __API_URL__ = 'http://localhost:3000';
 
   //Grabs one book
   Book.fetchOne = (ctx, callback) => {
-    console.log('inside fetchOne');
     $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
       .then(results => ctx.book = results[0])
       .then(callback)
@@ -50,10 +49,12 @@ var __API_URL__ = 'http://localhost:3000';
       .catch(errorCallback);
 
   //This receives the book object from the update form.
-  Book.updateBook = book =>
-    $.put(`${__API_URL__}/api/v1/books`, book)
-      .then(() => page('/'))
-      .catch(errorCallback);
+  // Book.updateBook = (ctx, book) => {
+  //   console.log(ctx);
+  //   $.put(`${__API_URL__}/api/v1/books/${ctx.book_id}`, book)
+  //     .then(() => page('/'))
+  //     .catch(errorCallback);
+  //   }
 
   //Deletes a single book
   Book.deleteBook = (ctx) => {
@@ -65,13 +66,13 @@ var __API_URL__ = 'http://localhost:3000';
       .then(() => page('/'));
   };
 
-  //This updates a book
-  Book.updateBook = (book) => {
-    console.log('inside updateBook function');
+  // //This updates a book
+  Book.updateBook = (ctx, book) => {
     $.ajax({
-      url: `${__API_URL__}/api/v1/books/${book.book_id}`,
+      url: `${__API_URL__}/api/v1/books`,
       method: 'PUT',
       data: {
+        book_id: book.book_id,
         title: book.title,
         author: book.author,
         isbn: book.isbn,
