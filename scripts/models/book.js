@@ -22,18 +22,21 @@ var __API_URL__ = 'http://localhost:3000';
 
   Book.all = [];
 
+  //Loads all books
   Book.loadAll = rows => {
     Book.all = rows.map(book => new Book(book));
   }
 
+  //Grabs all books
   Book.fetchAll = callback =>
     $.get(`${__API_URL__}/api/v1/books`)
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
 
+  //Grabs one book
   Book.fetchOne = (ctx, callback) => {
-    console.log('inside fetchOne function');
+    console.log('inside fetchOne');
     $.get(`${__API_URL__}/api/v1/books/${ctx.params.book_id}`)
       .then(results => ctx.book = results[0])
       .then(callback)
@@ -45,6 +48,32 @@ var __API_URL__ = 'http://localhost:3000';
     $.post(`${__API_URL__}/api/v1/books`, book)
       .then(() => page('/'))
       .catch(errorCallback);
+
+  //This receives the book object from the update form.
+  Book.updateBook = book =>
+    $.put(`${__API_URL__}/api/v1/books`, book)
+      .then(() => page('/'))
+      .catch(errorCallback);
+
+  //Deletes a single book
+  Book.deleteBook = (ctx) => {
+    console.log('inside the deleteBook function');
+    $.ajax({
+      url: `'/api/v1/books/${ctx.params.book_id}`,
+      method: 'DELETE'
+    })
+      .then(console.log)
+      .then(() => page('/'));
+  };
+
+  Book.updateBook = (ctx, book) => {
+    $.ajax({
+      url: `'/api/v1/books/${ctx.params.book_id}`,
+      method: 'PUT',
+      data: book
+    })
+      .then(() => page('/'));
+  }
 
   module.Book = Book;
 })(app)
