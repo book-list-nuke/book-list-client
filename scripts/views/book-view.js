@@ -64,10 +64,16 @@ var app = app || {};
     $('#book-detail').empty();
     let template = Handlebars.compile($('#book-detail-template').text());
     $('#book-detail').append(template(ctx));
+    $('#admin-controls').hide();
     $('#delete-book').on('click', () => {
       app.Book.deleteBook(ctx);
     });
   }
+
+  // bookView.initAdminControls = function () {
+  //   $('#admin-login').hide();
+  //   $('#admin-controls').show();
+  // }
 
   module.bookView = bookView;
 })(app)
