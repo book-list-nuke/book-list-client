@@ -25,6 +25,7 @@
       <p>{{isbn}}</p>
       <img src={{image_url}}>
       <p>{{description}}</p>
+      <p class="delete-button"><a href="/books/{{book_id}}">Delete This Book</a></p>
     </script>
   </head>
   <body>
@@ -34,6 +35,7 @@
         <ul>
           <li><a href="/books/new">Add a Book</a></li>
           <li><a href="/">View All Books</a></li>
+          <li><a href="/books/update">Update a Book</a></li>
         </ul>
       </nav>
     </header>
@@ -64,6 +66,19 @@
           <button type="submit">Add This Book</button>
         </form>
       </section>
+
+      <section class"update-view container">
+        <h3>Update a Book</h3>
+        <form id="update-form">
+          <input type="text" name="title" placeholder="Title">
+          <input type="text" name="author" placeholder="Author">
+          <input type="text" name="isbn" placeholder="ISBN">
+          <input type="text" name="image_url" placeholder="Image URL">
+          <textarea name="description" placeholder="Description" cols="30" rows="10"></textarea>
+          <button type="submit">Update This Book</button>
+        </form>
+      </section>
+
     </main>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
