@@ -59,10 +59,9 @@ var app = app || {};
     $('#book-detail').empty();
     let template = Handlebars.compile($('#book-detail-template').text());
     $('#book-detail').append(template(ctx));
-    $('#delete-button').on('click', function(event) {
-      event.preventDefault();
+    $('#delete-book').on('click', () => {
       app.Book.deleteBook(ctx);
-    })
+    });
   }
 
   module.bookView = bookView;

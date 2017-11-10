@@ -57,9 +57,8 @@ var __API_URL__ = 'http://localhost:3000';
 
   //Deletes a single book
   Book.deleteBook = (ctx) => {
-    console.log('inside the deleteBook function');
     $.ajax({
-      url: `'/api/v1/books/${ctx.params.book_id}`,
+      url: `${__API_URL__}/api/v1/books/${ctx.book_id}`,
       method: 'DELETE'
     })
       .then(console.log)
@@ -67,10 +66,17 @@ var __API_URL__ = 'http://localhost:3000';
   };
 
   Book.updateBook = (ctx, book) => {
+    conole.log('inside updateBook function');
     $.ajax({
-      url: `'/api/v1/books/${ctx.params.book_id}`,
+      url: `${__API_URL__}/api/v1/books/${ctx.book_id}`,
       method: 'PUT',
-      data: book
+      data: {
+        title: book.title,
+        author: book.author,
+        isbn: book.isbn,
+        image_url: book.image_url,
+        description: book.description
+      }
     })
       .then(() => page('/'));
   }

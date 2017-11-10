@@ -25,7 +25,8 @@
       <p>{{isbn}}</p>
       <img src={{image_url}}>
       <p>{{description}}</p>
-      <p class="delete-button"><a href="/books/{{book_id}}">Delete This Book</a></p>
+      <a href="/books/{{book_id}}/update">Update This Book</a>
+      <a id="delete-book" href="#">Delete This Book</a>
     </script>
   </head>
   <body>
@@ -67,7 +68,7 @@
         </form>
       </section>
 
-      <section class"update-view container">
+      <section class="update-view container">
         <h3>Update a Book</h3>
         <form id="update-form">
           <input type="text" name="title" placeholder="Title">
