@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book List 2: Electric Boogaloo</title>
-
+    <base href=".">
 
     <script type="text/x-handlebars-template" id="error-template">
       <p>{{status}}: {{statusText}}</p>
@@ -15,7 +15,7 @@
         <img src={{image_url}}>
         <h4>{{title}}</h4>
         <p>{{author}}</p>
-        <p class="detail-button"><a href="/books/{{book_id}}">View Details</a></p>
+        <p class="detail-button"><a href="books/{{book_id}}">View Details</a></p>
       </li>
     </script>
 
@@ -25,8 +25,10 @@
       <p>{{isbn}}</p>
       <img src={{image_url}}>
       <p>{{description}}</p>
-      <a href="/books/{{book_id}}/update">Update This Book</a>
+      <section id="admin-controls">
+      <a href="books/{{book_id}}/update">Update This Book</a>
       <a id="delete-book" href="#">Delete This Book</a>
+      </section>
     </script>
   </head>
   <body>
@@ -34,9 +36,8 @@
       <h1>Book List 2: Electric Boogaloo</h1>
       <nav class="navigation">
         <ul>
-          <li><a href="/books/new">Add a Book</a></li>
-          <li><a href="/">View All Books</a></li>
-          <li><a href="/books/update">Update a Book</a></li>
+          <li><a href="books/new">Add a Book</a></li>
+          <li><a href="">View All Books</a></li>
         </ul>
       </nav>
     </header>
@@ -53,6 +54,12 @@
 
       <section class="detail-view container">
         <section id="book-detail">
+        </section>
+        <section id="admin-login">
+          <form id="admin-form">
+            <input type="text" name="password" placeholder="Enter Password">
+            <button type="submit">Submit</button>
+          </form>
         </section>
       </section>
 
@@ -87,6 +94,7 @@
 
     <script src="./scripts/models/book.js" type="text/javascript"></script>
     <script src="./scripts/views/book-view.js" type="text/javascript"></script>
+    <script src="./scripts/views/admin-view.js" type="text/javascript"></script>
     <script src="./scripts/views/error-view.js" type="text/javascript"></script>
     <script src="./scripts/controllers/routes.js" type="text/javascript"></script>
   </body>

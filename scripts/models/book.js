@@ -48,14 +48,6 @@ var __API_URL__ = 'http://localhost:3000';
       .then(() => page('/'))
       .catch(errorCallback);
 
-  //This receives the book object from the update form.
-  // Book.updateBook = (ctx, book) => {
-  //   console.log(ctx);
-  //   $.put(`${__API_URL__}/api/v1/books/${ctx.book_id}`, book)
-  //     .then(() => page('/'))
-  //     .catch(errorCallback);
-  //   }
-
   //Deletes a single book
   Book.deleteBook = (ctx) => {
     $.ajax({
