@@ -35,11 +35,18 @@ var app = app || {};
     })
   }
 
-  bookView.initUpdateForm = function () {
+  //Form for updating a book. Should display current book info and create a new book from any changes made, passed to the updateBook function.
+  bookView.initUpdateForm = function (ctx) {
     console.log('inside initUpdateForm');
     reset();
     $('.update-view').show();
+    $('#updateTitle').val(ctx.title);
+    $('#updateAuthor').val(ctx.author);
+    $('#updateISBN').val(ctx.isbn);
+    $('#updateImage_url').val(ctx.image_url);
+    $('#updateDescription').val(ctx.description);
     $('#update-form').on('submit', function(event) {
+      console.log('inside updateForm listener');
       event.preventDefault();
       let book = {
         title: event.target.title.value,
@@ -48,7 +55,7 @@ var app = app || {};
         image_url: event.target.image_url.value,
         description: event.target.description.value,
       };
-      module.Book.createBook(book);
+      module.Book.updateBook(book);
     })
   }
 

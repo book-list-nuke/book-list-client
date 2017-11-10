@@ -65,10 +65,11 @@ var __API_URL__ = 'http://localhost:3000';
       .then(() => page('/'));
   };
 
-  Book.updateBook = (ctx, book) => {
-    conole.log('inside updateBook function');
+  //This updates a book
+  Book.updateBook = (book) => {
+    console.log('inside updateBook function');
     $.ajax({
-      url: `${__API_URL__}/api/v1/books/${ctx.book_id}`,
+      url: `${__API_URL__}/api/v1/books/${book.book_id}`,
       method: 'PUT',
       data: {
         title: book.title,
