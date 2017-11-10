@@ -4,14 +4,12 @@ var app = app || {};
 (function(module) {
   const bookView = {};
 
-  //This resets the state of the page every time one of these init funtions is
+  //This resets the state of the page every time one of these init funtions is called.
   function reset() {
-    console.log('inside reset');
     $('.container').hide();
   }
 
   bookView.initIndexPage = function() {
-    console.log('in initindex')
     reset();
     $('.book-view').show();
     $('#book-list').empty();
@@ -35,20 +33,27 @@ var app = app || {};
     })
   }
 
-  bookView.initUpdateForm = function () {
-    console.log('inside initUpdateForm');
+  //Form for updating a book. Should display current book info and create a new book from any changes made, passed to the updateBook function.
+  bookView.initUpdateForm = function (ctx) {
     reset();
     $('.update-view').show();
+    $('#updateTitle').val(ctx.title);
+    $('#updateAuthor').val(ctx.author);
+    $('#updateISBN').val(ctx.isbn);
+    $('#updateImage_url').val(ctx.image_url);
+    $('#updateDescription').val(ctx.description);
     $('#update-form').on('submit', function(event) {
+      console.log('inside updateForm listener');
       event.preventDefault();
       let book = {
+        book_id: ctx.book_id,
         title: event.target.title.value,
         author: event.target.author.value,
         isbn: event.target.isbn.value,
         image_url: event.target.image_url.value,
         description: event.target.description.value,
       };
-      module.Book.createBook(book);
+      module.Book.updateBook(ctx, book);
     })
   }
 
