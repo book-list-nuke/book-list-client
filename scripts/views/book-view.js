@@ -4,26 +4,24 @@ var app = app || {};
 (function(module) {
   const bookView = {};
 
-  //This resets the state of the page every time one of these init funtions is
+  //This resets the state of the page every time one of these init funtions is called.
   function reset() {
     $('.container').hide();
-    // $('.navigation').slideDown(350);
+    $('#login').hide();
   }
 
-  //I have commented out the reset only so I can be sure things are or are not displaying -- we will need to comment it back in later.
+  //This inititalizes the homepage.
   bookView.initIndexPage = function() {
-    console.log('in initindex')
     reset();
     $('.book-view').show();
-    $('#book-list').show();
+    $('#book-list').empty();
     app.Book.all.map(book => $('#book-list').append(book.toHtml()));
   }
 
-  // This function SHOULD be triggered through the page.js routing for /add, making the form visible and passing the form's data to a new Book object. That Book object is then passed to a createBook method on books.js. Clicking the relevant menu item DOES show the form correctly, but it's currently disabled until you comment all of the reset functions back in.
+  // Initializes and handles the form for adding a new book
   bookView.initAddForm = function() {
     reset();
     $('.add-view').show();
-    console.log('inside initaddform');
     $('#add-form').on('submit', function(event) {
       event.preventDefault();
       let book = {
@@ -33,10 +31,46 @@ var app = app || {};
         image_url: event.target.image_url.value,
         description: event.target.description.value,
       };
-      console.log('book', book);
-
       module.Book.createBook(book);
     })
+  }
+
+  //Form for updating a book. Should display current book info and create a new book from any changes made, passed to the updateBook function.
+  bookView.initUpdateForm = function (ctx) {
+    reset();
+    $('.update-view').show();
+    $('#updateTitle').val(ctx.title);
+    $('#updateAuthor').val(ctx.author);
+    $('#updateISBN').val(ctx.isbn);
+    $('#updateImage_url').val(ctx.image_url);
+    $('#updateDescription').val(ctx.description);
+    $('#update-form').on('submit', function(event) {
+      console.log('inside updateForm listener');
+      event.preventDefault();
+      let book = {
+        book_id: ctx.book_id,
+        title: event.target.title.value,
+        author: event.target.author.value,
+        isbn: event.target.isbn.value,
+        image_url: event.target.image_url.value,
+        description: event.target.description.value,
+      };
+      module.Book.updateBook(ctx, book);
+    })
+  }
+
+  //Initilizes and appends data for the detailed view of a single book. Makes the admin login menu item visible. Includes event handler for the book delete.
+  bookView.initDetailPage = function (ctx) {
+    reset();
+    $('#login').show();
+    $('.detail-view').show();
+    $('#book-detail').empty();
+    let template = Handlebars.compile($('#book-detail-template').text());
+    $('#book-detail').append(template(ctx));
+    $('#admin-controls').hide();
+    $('#delete-book').on('click', () => {
+      app.Book.deleteBook(ctx);
+    });
   }
 
   module.bookView = bookView;
