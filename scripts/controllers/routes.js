@@ -8,7 +8,6 @@ page('/books/new', ctx => app.bookView.initAddForm(ctx));
 page('/books/:book_id', ctx => app.Book.fetchOne(ctx, app.bookView.initDetailPage));
 page('/books/update', ctx => app.bookView.initUpdateForm(ctx));
 page('/books/:book_id/update', ctx => app.Book.fetchOne(ctx, app.bookView.initUpdateForm));
-page('/admin', (ctx, next) => app.adminView.verify(ctx, next), (ctx) => app.adminView.initAdminpage());
-// page('/admin', ctx => app.bookView.initAdminControls());
+page('/admin', () => app.adminView.initAdminPage());
 
 page();

@@ -7,8 +7,10 @@ var app = app || {};
   //This resets the state of the page every time one of these init funtions is called.
   function reset() {
     $('.container').hide();
+    $('#login').hide();
   }
 
+  //This inititalizes the homepage.
   bookView.initIndexPage = function() {
     reset();
     $('.book-view').show();
@@ -57,9 +59,10 @@ var app = app || {};
     })
   }
 
-  //Initilizes and appends data for the detailed view of a single book
+  //Initilizes and appends data for the detailed view of a single book. Makes the admin login menu item visible. Includes event handler for the book delete.
   bookView.initDetailPage = function (ctx) {
     reset();
+    $('#login').show();
     $('.detail-view').show();
     $('#book-detail').empty();
     let template = Handlebars.compile($('#book-detail-template').text());
@@ -69,11 +72,6 @@ var app = app || {};
       app.Book.deleteBook(ctx);
     });
   }
-
-  // bookView.initAdminControls = function () {
-  //   $('#admin-login').hide();
-  //   $('#admin-controls').show();
-  // }
 
   module.bookView = bookView;
 })(app)
