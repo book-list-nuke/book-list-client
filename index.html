@@ -38,12 +38,13 @@
         <ul>
           <li><a href="books/new">Add a Book</a></li>
           <li><a href="">View All Books</a></li>
+          <li id="login"><a href="admin">Admin</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <section class="error-view container">
-        <h3>Something went wrong</h3>
+        <h3>Something went wrong!</h3>
         <section id="error-message"></section>
       </section>
 
@@ -55,12 +56,13 @@
       <section class="detail-view container">
         <section id="book-detail">
         </section>
-        <section id="admin-login">
-          <form id="admin-form">
-            <input type="text" name="password" placeholder="Enter Password">
-            <button type="submit">Submit</button>
-          </form>
-        </section>
+      </section>
+
+      <section class="admin-view container">
+        <form id="admin-form">
+          <input type="number" name="passcode" placeholder="Enter Passcode">
+          <button type="submit">Submit</button>
+        </form>
       </section>
 
       <section class="add-view container">
@@ -86,6 +88,13 @@
           <button type="submit">Update This Book</button>
         </form>
       </section>
+
+      <!-- <section class="admin-view container">
+        <form id="admin-form">
+          <input type="number" name="passcode" placeholder="Enter Passcode">
+          <button type="submit">Submit</button>
+        </form>
+      </section> -->
 
     </main>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
