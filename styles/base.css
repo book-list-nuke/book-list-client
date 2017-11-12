@@ -1,0 +1,95 @@
+img {
+  max-width: 100%;
+}
+
+body {
+  line-height: 1.5;
+  font-size: 1em;
+  background-color: #9299a3;
+}
+
+main {
+  margin: 0 20px;
+}
+
+li {
+  background-color: #4b668c;
+  border-radius: 5px;
+}
+
+/*TEXT STYLES
+=======================================*/
+p {
+  font-size: 1em;
+}
+
+h1, h2, h3, h4 {
+  font-style: italic;
+  font-size: 1.5em;
+  margin: auto;
+}
+
+/*LINK STYLES
+=======================================*/
+
+a {
+  text-decoration: none;
+  color: #111100;
+  font-size: 1.25em;
+}
+
+a:hover, a:focus {
+  color: #29506D;
+}
+
+a:visited {
+}
+
+label {
+  font-size: 3em;
+}
+
+input {
+  width: 100%;
+  margin: .5em 0;
+  border: 1px solid #ccc;
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+}
+
+input[type="checkbox"] {
+  width: .28em;
+  height: .28em;
+  font-size: 3em;
+}
+
+textarea {
+  width: 100%;
+  margin: .5em 0;
+  font-size: 2em;
+  border: 1px solid #ccc;
+  border-radius: 0;
+}
+
+input:invalid, textarea:invalid {
+  border-color: #AE3F3C;
+}
+
+input:valid, textarea:valid {
+  border-color: #0f3770;
+}
+
+header{
+  background-color: #4b668c;
+  padding: 0;
+  border-bottom: 2px solid #0f3770;
+}
+
+header h1{
+  text-align: center;
+}
+
+form {
+width: 80%;
+margin: auto;
+}
