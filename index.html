@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
     <title>Book List 2: Electric Boogaloo</title>
     <base href=".">
 
@@ -12,10 +17,12 @@
 
     <script type="text/x-handlebars-template" id="book-template">
       <li class="book-item" data-bookid={{book_id}}>
-        <img src={{image_url}}>
-        <h4>{{title}}</h4>
-        <p>{{author}}</p>
-        <p class="detail-button"><a href="books/{{book_id}}">View Details</a></p>
+        <img class="book-img" src={{image_url}}>
+        <div class="book-info">
+          <h4>{{title}}</h4>
+          <p>{{author}}</p>
+          <p class="detail-button"><a href="books/{{book_id}}">View Details</a></p>
+        </div>
       </li>
     </script>
 
@@ -88,13 +95,6 @@
           <button type="submit">Update This Book</button>
         </form>
       </section>
-
-      <!-- <section class="admin-view container">
-        <form id="admin-form">
-          <input type="number" name="passcode" placeholder="Enter Passcode">
-          <button type="submit">Submit</button>
-        </form>
-      </section> -->
 
     </main>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

@@ -1,0 +1,52 @@
+nav {
+  text-align: center;
+  margin: auto;
+  width: 80%;
+  margin: auto;
+  list-style: none;
+  clear: both;
+}
+
+nav li{
+  display: inline-block;
+}
+
+main h3 {
+  margin: auto;
+  font-size: 1.5em;
+  width:80%;
+}
+
+.book-item {
+  background-color: #4b668c;
+  border-color: #0f3770;
+  border-width: 1px;
+  border-radius: 10px;
+  margin: auto;
+  width:80%;
+  margin-bottom: 20px;
+}
+
+.book-img{
+  width: 100%;
+}
+
+.book-info{
+ background-color: #4b668c;
+ border-color: #0f3770;
+}
+
+#book-detail {
+  background-color: #4b668c;
+  border-color: #0f3770;
+  border-width: 1px;
+  border-radius: 5px;
+  margin: auto;
+  width:80%;
+  margin-bottom: 20px;
+  margin-top: 15%;
+}
+
+#book-detail img{
+  margin: auto;
+}
